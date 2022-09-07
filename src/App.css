@@ -1,0 +1,66 @@
+
+body {
+  background-image: linear-gradient(#222a31, #222a31 );
+  /* background: linear-gradient(#0f0c29, #302b63, #24243e); */
+  /* background: linear-gradient(#0F2027, #0a1929, #0a1929); */
+  overflow-x: hidden;
+
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.animation:hover { 
+  transform: scale(1.1);
+
+ 
+}
+.animation {
+
+  transition: transform .2s; /* Animation */ 
+
+}
+/* code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+/* ::-webkit-scrollbar {
+    width: 20px; 
+    
+    
+}
+
+::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 2.5px 2px rgb(0 , 0, 0 , 0.5);
+
+}
+
+
+::-webkit-scrollbar-thumb{
+    /* background:linear-gradient(45deg , rgb(128, 51, 0) , rgb(197, 75, 75) ) ; */
+    /* border-radius: 3px;
+    background-image: linear-gradient(90deg, rgb(131, 68, 68) , rgb(75, 32, 32)); */
+
+/* }  */
+
+
+
+.rating {
+  text-align: center;
+ 
+  border: black solid;
+  position: relative;
+
+  background-color: orange;
+  z-index: 2;
+  right: 8px;
+  top: 25px;
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  /* opacity: 0.3; */
+}
