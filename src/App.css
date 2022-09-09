@@ -1,5 +1,7 @@
 
 body {
+
+
   background-image: linear-gradient(#222a31, #222a31 );
   /* background: linear-gradient(#0f0c29, #302b63, #24243e); */
   /* background: linear-gradient(#0F2027, #0a1929, #0a1929); */
@@ -23,6 +25,23 @@ body {
 
   transition: transform .2s; /* Animation */ 
 
+}
+
+.card-content {
+  margin-bottom: "10px";
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+color : grey;
+}
+.form {
+  display: flex;
+   flex-direction: column;
+   gap: 24px;
+   
+   /* padding-top: 50%; */
 }
 /* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -55,7 +74,7 @@ body {
   border: black solid;
   position: relative;
 
-  background-color: orange;
+  background-color: #ff4350;
   z-index: 2;
   right: 8px;
   top: 25px;

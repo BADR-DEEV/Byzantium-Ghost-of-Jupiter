@@ -3,24 +3,26 @@ import React from 'react'
 import "../App.css"
 import {theme} from "../constants/StyleConstants"
 
-export default function Footer() {
+ const Footer = () => {
   const year = new Date().getFullYear();
   return (
     <ThemeProvider theme = {theme} >
     <Box   sx = {{
      
     position: "relative",
+    backgroundColor : "#1a1c20",
     bottom: "0",
-    height: "50px",
+    height: "150px",
     width: "100%",
     display: "flex",
     justifyContent: "center",
     textAlign: "center",
     alignItems: "center"}} >
-    <Typography color = "white">
-    Sadeem&copy; {year} 
+    <Typography color = "lightgrey" sx = {{marginBottom : "10px"}}>
+    &copy; by Sadeem tech {year} 
     </Typography>
     </Box>
     </ThemeProvider>
   )
 }
+export default Footer;

@@ -1,22 +1,27 @@
 
 import React from 'react';
-import Footer from './components/Footer';
-import HomeScreen from './screens/HomeScreen';
-import NavigationBar from './components/NavigationBar';
+import Dashboard from './screens/Dashboard';
+import { Routes, Route } from "react-router-dom";
+import LoginScreen from './screens/LoginScreen';
+import RegisterScreen from './screens/RegisterScreen';
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 
 const App = () => {
   return (
-  <>
+    <>
+    <Routes>
+    <Route path = "/login" exact element = {<LoginScreen/>}></Route>
+    <Route path = "/register" exact element = {<RegisterScreen/>}></Route>
 
-    <Router>
-      <NavigationBar />
-      </Router>  
-  <HomeScreen />
-  <Footer/>
+      <Route path = "/" exact element = {<Dashboard/>}>
 
-  </>
+
+      </Route>
+    </Routes>
+
+   </>
+
   );
 };
 
