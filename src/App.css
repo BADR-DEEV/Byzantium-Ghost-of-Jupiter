@@ -23,7 +23,10 @@ body {
 }
 .animation {
 
-  transition: transform .2s; /* Animation */ 
+  transition: transform .2s;
+/* Animation */ 
+
+  
 
 }
 
@@ -43,6 +46,24 @@ color : grey;
    
    /* padding-top: 50%; */
 }
+.globale {
+  min-height: 60vh;
+}
+
+
+.colorRed {
+  color : "#b897ad";
+background-color: #ff4350;
+  font-weight: bold;
+}
+.colorBlack {
+  color : "#1a1c20";
+  
+
+
+
+}
+
 /* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

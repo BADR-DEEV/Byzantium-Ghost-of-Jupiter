@@ -12,9 +12,7 @@ import { Routes, Route } from "react-router-dom";
     <>
     <NavigationBar />
 
-    <Routes>
-    <Route path = "/" element = {<HomeScreen/>}></Route>
-    </Routes>
+ <HomeScreen/>
     <Footer />
    
     
