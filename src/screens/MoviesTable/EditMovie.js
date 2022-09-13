@@ -18,7 +18,7 @@ export default function EditMovie() {
 
       <Grid container spacing={4} justifyContent="start" sx={{ paddingLeft: "30px", paddingRight: "30px" }} >
       <Grid sx={{ marginTop : "10px" }} item  xs={12} sm={6} md={6} >
-        <FormControl variant="filled" sx = {{width : "300px"}} required={true} >
+        <FormControl sx = {{width : "300px"}} required={true} >
           <InputLabel sx={{ color: "lightgrey" }}  htmlFor="my-input">password</InputLabel>
           <Input  fullWidth  sx={{ input: { color: "white" } }} name="password" type='password' id="passwprd" aria-describedby="my-helper-text" />
           <FormHelperText sx={{ color: "gray" }} id="my-helper-text">We'll never share your email.</FormHelperText>
