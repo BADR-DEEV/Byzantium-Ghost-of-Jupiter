@@ -3,6 +3,7 @@ import movieService from './MoviesService'
 
 const initialState = {
   movies: [],
+  // movie : {},
   Error: false,
   Success: false,
   Loading: false,
@@ -13,8 +14,10 @@ const initialState = {
 export const getMovies = createAsyncThunk(
     'movies/getAll',
     async (_, thunkAPI) => {
+      
       try {
-        // const token = thunkAPI.getState().auth.user.token
+        // const token = localStorage.getItem("user")
+        // console.log(`the token is ${token}`)
         return await movieService.getMovies()
       } catch (error) {
         const message =
@@ -29,6 +32,24 @@ export const getMovies = createAsyncThunk(
   )
 
 
+
+  // export const getMovieById = createAsyncThunk(
+  //   'movies/getAll',
+  //   async (_, thunkAPI) => {
+  //     try {
+  //       // const token = thunkAPI.getState().auth.user.token
+  //       return await movieService.getMovieById(id)
+  //     } catch (error) {
+  //       const message =
+  //         (error.response &&
+  //           error.response.data &&
+  //           error.response.data.message) ||
+  //         error.message ||
+  //         error.toString()
+  //       return thunkAPI.rejectWithValue(message)
+  //     }
+  //   }
+  // )
 
 
   export const MovieSlice = createSlice({

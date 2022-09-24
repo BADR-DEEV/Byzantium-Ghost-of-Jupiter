@@ -15,8 +15,18 @@ import axios from 'axios'
 
 }
 
+// const getMovieById = async () => {
+
+//   const response = await axios.get(`api/v1/movies${id}`)
+//   console.log(response.data)
+
+//   return response.data.data
+
+// }
+
 const movieService = {
     getMovies,
+    // getMovieById
   }
   
   export default movieService

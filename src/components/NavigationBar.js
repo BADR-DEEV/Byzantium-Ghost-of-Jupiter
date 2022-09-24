@@ -21,6 +21,10 @@ import { logout } from "../features/auth/AuthSlice";
 import { useDispatch } from "react-redux";
 import Home from "@mui/icons-material/Home";
 import DashboardIcon from '@mui/icons-material/Dashboard';
+import PeopleIcon from '@mui/icons-material/People';
+import PersonIcon from '@mui/icons-material/Person';
+import SettingsIcon from '@mui/icons-material/Settings';
+import CategoryIcon from '@mui/icons-material/Category';
 // import FormDialog from "./dialog"
 const NavigationBar = () => {
   const navigate = useNavigate()
@@ -60,100 +64,140 @@ const NavigationBar = () => {
 
                   <br />
                   <br />
-             
-                  <ListItem button onClick={() => setOpen(false)}>
-                  <NavLink   to="/home" 
-  className={({ isActive }) => (isActive ? 'colorRed' : 'ColorBlack')}>
-                    <ListItemIcon>
-                      <ListItem 
-                      
-                        style={{
-                          textDecoration: "none",
-                          color: "#fff",
-                          fontWeight: "bolder",
-                        }}>
-                       
-
-                        <Home sx={{ color: "white" }} /> &nbsp;Home
-                      </ListItem>
-                    </ListItemIcon>
+                  {/* -----START HOME------- */}
+                  <NavLink to="/home">
+                    <ListItem button onClick={() => setOpen(false)}>
+                      <NavLink to="/home"
+                        className={({ isActive }) => (isActive ? 'colorRed' : 'ColorBlack')}>
+                        <ListItemIcon>
+                          <ListItem
+                            style={{
+                              textDecoration: "none",
+                              color: "#fff",
+                              fontWeight: "bolder",
+                            }}>
+                            <Home sx={{ color: "white" }} /> &nbsp;Home
+                          </ListItem>
+                        </ListItemIcon>
+                      </NavLink>
+                    </ListItem>
                   </NavLink>
+                  {/* -----END OF HOME------- */}
 
-                  </ListItem>
 
-                  <ListItem button onClick={() => setOpen(false)}>
-                  <NavLink   to="/movies" 
-  className={({ isActive }) => (isActive ? 'colorRed' : 'ColorBlack')}>
-                    <ListItemIcon>
-                      <ListItem
-                        component={Link}
-                        style={{
-                          textDecoration: "none",
-                          color: "#fff",
-                          fontWeight: "bolder",
-                        }}
-                        to="/movies">
-
-                        <LocalMoviesIcon sx={{ color: "white" }} /> &nbsp;Movies
-                      </ListItem>
-                    </ListItemIcon>
+                  {/* -----START MOVIES------- */}
+                  <NavLink to="/movies" >
+                    <ListItem button onClick={() => setOpen(false)} >
+                      <NavLink to="/movies"
+                        className={({ isActive }) => (isActive ? 'colorRed' : 'ColorBlack')}>
+                        <ListItemIcon>
+                          <ListItem
+                            style={{
+                              textDecoration: "none",
+                              color: "#fff",
+                              fontWeight: "bolder",
+                            }}>
+                            <LocalMoviesIcon sx={{ color: "white" }} /> &nbsp;Movies
+                          </ListItem>
+                        </ListItemIcon>
+                      </NavLink>
+                    </ListItem>
                   </NavLink>
+                  {/* -----END OF MOVIES------- */}
 
-                  </ListItem>
+
+                  {/* -----START ACTORS------- */}
                   <ListItem button onClick={() => setOpen(false)}>
-                  <NavLink   to="/actors" 
-  className={({ isActive }) => (isActive ? 'colorRed' : 'ColorBlack')}>
-                    <ListItemIcon>
-                      <ListItem
-                        component={Link}
-                        style={{
-                          textDecoration: "none",
-                          color: "#fff",
-                          fontWeight: "bolder",
-                        }}
-                        to="/actors">
-                        <GroupIcon sx={{ color: "white" }} />
-                        &nbsp;Actors
-                      </ListItem>
-                    </ListItemIcon>
-                  </NavLink>
-
-                  </ListItem>
-                  
-
-                  <ListItem button onClick={() => setOpen(false)}>
-                    <ListItemIcon>
-                      <ListItem
-                        component={Link}
-                        style={{
-                          textDecoration: "none",
-                          color: "#fff",
-                          fontWeight: "bolder",
-                        }}
-                        to="/reviews">
-
-                        <SaveIcon sx={{ color: "white" }} /> &nbsp;Reviews
-                      </ListItem>
-                    </ListItemIcon>
-                  </ListItem>
-                  <Box sx={{ position: "relative", bottom: "-280px" }}>
-                    <ListItem button onClick={logoutHandleer}>
+                    <NavLink to="/actors"
+                      className={({ isActive }) => (isActive ? 'colorRed' : 'ColorBlack')}>
                       <ListItemIcon>
                         <ListItem
-                          // component={Link}
+                          component={Link}
                           style={{
                             textDecoration: "none",
                             color: "#fff",
                             fontWeight: "bolder",
                           }}
-                        // to="/login"
-                        >
+                          to="/actors">
+                          <GroupIcon sx={{ color: "white" }} />
+                          &nbsp;Actors
+                        </ListItem>
+                      </ListItemIcon>
+                    </NavLink>
+                  </ListItem>
+                   {/* -----END OF ACTORS------- */}
 
+                   {/* -----START USERS------- */}
+                  <ListItem button onClick={() => setOpen(false)}>
+                  <NavLink to = "/users" 
+                      className={({ isActive }) => (isActive ? 'colorRed' : 'ColorBlack')}>
+                    <ListItemIcon>
+                      <ListItem
+                        component={Link}
+                        style={{
+                          textDecoration: "none",
+                          color: "#fff",
+                          fontWeight: "bolder",
+                        }}
+                        to="/users">
+                        <PersonIcon sx={{ color: "white" }} /> &nbsp;Users
+                      </ListItem>
+                    </ListItemIcon>
+                    </NavLink>
+                  </ListItem>
+                  {/* -----END OF USETS------- */}
+
+
+                   {/* -----START GENRES------- */}
+                  <ListItem button onClick={() => setOpen(false)}>
+                  <NavLink to = "/genres" 
+                      className={({ isActive }) => (isActive ? 'colorRed' : 'ColorBlack')}>
+                    <ListItemIcon>
+                      <ListItem
+                        component={Link}
+                        style={{
+                          textDecoration: "none",
+                          color: "#fff",
+                          fontWeight: "bolder",
+                        }}
+                        to="/genres">
+                        <CategoryIcon sx={{ color: "white" }} /> &nbsp;Genres
+                      </ListItem>
+                    </ListItemIcon>
+                    </NavLink>
+                  </ListItem>
+                      {/* -----END OF GENRES------- */}
+
+                      <ListItem button onClick={logoutHandleer}>
+                      <ListItemIcon>
+                        <ListItem
+                          style={{
+                            textDecoration: "none",
+                            color: "#fff",
+                            fontWeight: "bolder",
+                          }}>
+                          <SettingsIcon sx={{ color: "white" }} /> &nbsp;Settings
+                        </ListItem>
+                      </ListItemIcon>
+                    </ListItem>
+
+                  <Box sx={{ position: "relative", bottom: "-170px" }}>
+                    <ListItem button onClick={logoutHandleer}>
+                      <ListItemIcon>
+                        <ListItem
+                          style={{
+                            textDecoration: "none",
+                            color: "#fff",
+                            fontWeight: "bolder",
+                          }}>
                           <LoginIcon sx={{ color: "white" }} /> &nbsp;Sign out
                         </ListItem>
                       </ListItemIcon>
                     </ListItem>
                   </Box>
+
+              
+
                 </List>
               </Drawer>
             </Grid>

@@ -5,19 +5,24 @@ import { Box, display } from '@mui/system';
 import Checkbox from "../../components/CheckBox"
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMovies, reset } from '../../features/movies/MoviesSlice';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { IconButton, Switch, FormGroup, FormControlLabel, Button, ThemeProvider, Typography } from '@mui/material';
 import { theme } from '../../constants/StyleConstants';
+import { getUsers, reset } from '../../features/users/UserSlice';
+import { useState } from 'react';
+
+
+
+
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 150 },
-  { field: 'title', headerName: 'Title', width: 130 },
-  { field: 'description', headerName: 'Description', width: 130 },
-  { field: 'box_office', headerName: 'Box Office', width: 130 },
-  { field: 'release_date', headerName: 'Release Date', width: 130 },
-  { field: 'rating', headerName: 'Rating', width: 130 },
+  { field: 'name', headerName: 'name', width: 130 },
+  { field: 'email', headerName: 'email', width: 130 },
+  { field: 'password', headerName: 'password', width: 130 },
+//   { field: 'release_date', headerName: 'Release Date', width: 130 },
+//   { field: 'rating', headerName: 'Rating', width: 130 },
   {
     field: "actions",
     headerName: "actions",
@@ -34,12 +39,12 @@ const columns = [
             justifyContent: "center",
             alignItems: "center"
           }}>
-          <Link to={`/movies/edit/${params.id}`} >
+          <Link to={`/users/edit/${params.id}`} >
             <IconButton>
               <EditIcon />
             </IconButton>
           </Link>
-          <Link to={`/movies/delete/${params.id}`} >
+          <Link to={`/users/delete/${params.id}`} >
             <IconButton onClick={() => console.log(params.id)}>
               <DeleteIcon />
             </IconButton>
@@ -72,19 +77,21 @@ const columns = [
   }
 ];
 
-export default function MovieDataTable() {
+export default function UserDataTable() {
+
+
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { movies, Loading, Error, message } = useSelector(
-    (state) => state.movies
+  const { users , message } = useSelector(
+    (state) => state.users
   )
 
   useEffect(() => {
     if (Error) {
       console.log(message)
     }
-    dispatch(getMovies())
-    console.log(movies)
+    dispatch(getUsers())
+    console.log(users.data)
     return () => {
       dispatch(reset())
     }
@@ -96,7 +103,7 @@ export default function MovieDataTable() {
       <ThemeProvider theme={theme}>
         <Box>
           <Button color="neutral" variant='contained' sx={{ position: "relative", top: "40px", left: "225px" }}>Add</Button>
-          <Typography color="white" fontSize="25px" sx={{ marginLeft: "25px" }}>Movies Table</Typography>
+          <Typography color="white" fontSize="25px" sx={{ marginLeft: "25px" }}>Users Table</Typography>
         </Box>
       </ThemeProvider>
       <Box sx={{ height: "450px", width: '98%', margin: "0 auto", marginTop: "20px" }}>
@@ -109,7 +116,7 @@ export default function MovieDataTable() {
               color: '#ff4350',
             },
           }}
-          rows={movies}
+          rows={users}
           columns={columns}
           pageSize={5}
           rowsPerPageOptions={[5]}

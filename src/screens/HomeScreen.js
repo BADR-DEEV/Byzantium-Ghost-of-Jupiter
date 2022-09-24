@@ -15,6 +15,7 @@ import { theme } from "../constants/StyleConstants"
 import { getMovies , reset } from '../features/movies/MoviesSlice';
 
 import { getActors } from '../features/actors/ActorsSlice';
+import { getUsers } from '../features/users/UserSlice';
 
 
 
@@ -27,6 +28,7 @@ const HomeScreen = () => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    
     const userLogin = useSelector(state => state.auth)
     const {isLoading , isError , user , isSuccess} = userLogin
 
@@ -38,6 +40,7 @@ const HomeScreen = () => {
     const { actors, Loader, anError, MessageRecived } = useSelector(
       (state) => state.actors
     )
+    const {users} = useSelector(state => state.users)
  
  
 
@@ -54,7 +57,8 @@ const HomeScreen = () => {
         
         dispatch(getMovies())
         dispatch(getActors())
-        console.log(movies)
+        dispatch(getUsers())
+        console.log(users)
        
 
         return () => {
@@ -66,7 +70,8 @@ const HomeScreen = () => {
       let RetrivedMovies = {
         movies : movies,
       titles : titles,
-      actors : actors
+      actors : actors,
+      users : users
 
 
       }
