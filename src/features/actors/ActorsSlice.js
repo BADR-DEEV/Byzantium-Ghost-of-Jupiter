@@ -57,5 +57,5 @@ export const getActors = createAsyncThunk(
     },
   })
   
-  export const { reset } = ActorSlice
+  export const { reset } = ActorSlice.actions
   export default ActorSlice.reducer

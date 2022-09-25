@@ -22,8 +22,8 @@ export const getUsers = createAsyncThunk(
       try {
         const getToken = () => localStorage.getItem("user")
         ? JSON.parse(localStorage.getItem("user"))
-        : null;
-        console.log(getToken())
+        : "null";
+        // console.log(getToken())
 
         return await userService.getUsers(getToken()) 
       } catch (error) {

@@ -80,7 +80,7 @@ const columns = [
 export default function ActorDataTable() {
 
 
-  const navigate = useNavigate()
+
   const dispatch = useDispatch()
   const { anError , actors , MessageRecived } = useSelector(
     (state) => state.actors
@@ -94,7 +94,7 @@ export default function ActorDataTable() {
     return () => {
       dispatch(reset())
     }
-  }, [navigate, dispatch, anError, MessageRecived])
+  }, [dispatch, anError, MessageRecived])
   return (
     <>
       <NavigationBar />

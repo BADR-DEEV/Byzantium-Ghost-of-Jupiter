@@ -80,7 +80,7 @@ const columns = [
 export default function UserDataTable() {
 
 
-  const navigate = useNavigate()
+
   const dispatch = useDispatch()
   const { users , message } = useSelector(
     (state) => state.users
@@ -95,7 +95,7 @@ export default function UserDataTable() {
     return () => {
       dispatch(reset())
     }
-  }, [navigate, dispatch, Error, message])
+  }, [ dispatch, Error, message])
   return (
     <>
       <NavigationBar />

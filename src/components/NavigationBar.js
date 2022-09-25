@@ -65,9 +65,9 @@ const NavigationBar = () => {
                   <br />
                   <br />
                   {/* -----START HOME------- */}
-                  <NavLink to="/home">
+                  <NavLink style={{textDecoration : "none"}} to="/home">
                     <ListItem button onClick={() => setOpen(false)}>
-                      <NavLink to="/home"
+                      <NavLink style={{textDecoration : "none"}} to="/home"
                         className={({ isActive }) => (isActive ? 'colorRed' : 'ColorBlack')}>
                         <ListItemIcon>
                           <ListItem
@@ -86,9 +86,9 @@ const NavigationBar = () => {
 
 
                   {/* -----START MOVIES------- */}
-                  <NavLink to="/movies" >
+                  <NavLink style={{textDecoration : "none"}} to="/movies" >
                     <ListItem button onClick={() => setOpen(false)} >
-                      <NavLink to="/movies"
+                      <NavLink style={{textDecoration : "none"}} to="/movies"
                         className={({ isActive }) => (isActive ? 'colorRed' : 'ColorBlack')}>
                         <ListItemIcon>
                           <ListItem
@@ -107,65 +107,64 @@ const NavigationBar = () => {
 
 
                   {/* -----START ACTORS------- */}
-                  <ListItem button onClick={() => setOpen(false)}>
-                    <NavLink to="/actors"
-                      className={({ isActive }) => (isActive ? 'colorRed' : 'ColorBlack')}>
-                      <ListItemIcon>
-                        <ListItem
-                          component={Link}
-                          style={{
-                            textDecoration: "none",
-                            color: "#fff",
-                            fontWeight: "bolder",
-                          }}
-                          to="/actors">
-                          <GroupIcon sx={{ color: "white" }} />
-                          &nbsp;Actors
-                        </ListItem>
-                      </ListItemIcon>
-                    </NavLink>
-                  </ListItem>
+                  <NavLink style={{textDecoration : "none"}} to="/actors" >
+                    <ListItem button onClick={() => setOpen(false)} >
+                      <NavLink style={{textDecoration : "none"}} to="/actors"
+                        className={({ isActive }) => (isActive ? 'colorRed' : 'ColorBlack')}>
+                        <ListItemIcon>
+                          <ListItem
+                            style={{
+                              textDecoration: "none",
+                              color: "#fff",
+                              fontWeight: "bolder",
+                            }}>
+                            <GroupIcon sx={{ color: "white" }} /> &nbsp;Actors
+                          </ListItem>
+                        </ListItemIcon>
+                      </NavLink>
+                    </ListItem>
+                  </NavLink>
                    {/* -----END OF ACTORS------- */}
 
                    {/* -----START USERS------- */}
-                  <ListItem button onClick={() => setOpen(false)}>
-                  <NavLink to = "/users" 
-                      className={({ isActive }) => (isActive ? 'colorRed' : 'ColorBlack')}>
-                    <ListItemIcon>
-                      <ListItem
-                        component={Link}
-                        style={{
-                          textDecoration: "none",
-                          color: "#fff",
-                          fontWeight: "bolder",
-                        }}
-                        to="/users">
-                        <PersonIcon sx={{ color: "white" }} /> &nbsp;Users
-                      </ListItem>
-                    </ListItemIcon>
-                    </NavLink>
-                  </ListItem>
+                   <NavLink style={{textDecoration : "none"}} to="/users" >
+                    <ListItem button onClick={() => setOpen(false)} >
+                      <NavLink style={{textDecoration : "none"}} to="/users"
+                        className={({ isActive }) => (isActive ? 'colorRed' : 'ColorBlack')}>
+                        <ListItemIcon>
+                          <ListItem
+                            style={{
+                              textDecoration: "none",
+                              color: "#fff",
+                              fontWeight: "bolder",
+                            }}>
+                            <PersonIcon sx={{ color: "white" }} /> &nbsp;Users
+                          </ListItem>
+                        </ListItemIcon>
+                      </NavLink>
+                    </ListItem>
+                  </NavLink>
                   {/* -----END OF USETS------- */}
 
 
                    {/* -----START GENRES------- */}
-                  <ListItem button onClick={() => setOpen(false)}>
-                  <NavLink to = "/genres" 
-                      className={({ isActive }) => (isActive ? 'colorRed' : 'ColorBlack')}>
-                    <ListItemIcon>
-                      <ListItem
-                        component={Link}
-                        style={{
-                          textDecoration: "none",
-                          color: "#fff",
-                          fontWeight: "bolder",
-                        }}
-                        to="/genres">
-                        <CategoryIcon sx={{ color: "white" }} /> &nbsp;Genres
-                      </ListItem>
-                    </ListItemIcon>
-                    </NavLink>
-                  </ListItem>
+                   <NavLink style={{textDecoration : "none"}}  to="/genres" >
+                    <ListItem  button onClick={() => setOpen(false)} >
+                      <NavLink style={{textDecoration : "none"}} to="/genres"
+                        className={({ isActive }) => (isActive ? 'colorRed' : 'ColorBlack')}>
+                        <ListItemIcon>
+                          <ListItem
+                            style={{
+                              textDecoration: "none",
+                              color: "#fff",
+                              fontWeight: "bolder",
+                            }}>
+                            <CategoryIcon sx={{ color: "white" }} /> &nbsp;Genres
+                          </ListItem>
+                        </ListItemIcon>
+                      </NavLink>
+                    </ListItem>
+                  </NavLink>
                       {/* -----END OF GENRES------- */}
 
                       <ListItem button onClick={logoutHandleer}>
