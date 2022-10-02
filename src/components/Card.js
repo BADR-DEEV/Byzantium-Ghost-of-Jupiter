@@ -54,7 +54,7 @@ const CardInfo = (props) => {
                                     </Typography>
                                     <Typography sx={{ textAlign: "center", display: "flex", flexDirection: "row", justifyContent: "center" }} variant="h4" color="#ff4350" >
                                         <span><PeopleIcon sx={{ marginTop: "4px" }} fontSize="25px" /></span>
-                                        <span>  &nbsp;{props.actors.length}</span>
+                                        <span>  &nbsp;{props.actors.meta ? props.actors.meta.total : 0}</span>
                                     </Typography>
                                 </Box>
                             </CardContent>
@@ -64,7 +64,7 @@ const CardInfo = (props) => {
 
                 <Grid sx={{ marginTop: "10px" }} item xs={12} sm={6} md={3} >
                     <div className='animation'>
-                        <Card onClick={() => { console.log("clicked") }} sx={{ backgroundColor: "#1a1c20", boxShadow: "0 3px 10px black", height: "100%", display: "flex", flexDirection: "column" }}>
+                        <Card onClick= {RedirectToUsers} sx={{ backgroundColor: "#1a1c20", boxShadow: "0 3px 10px black", height: "100%", display: "flex", flexDirection: "column" }}>
                             <CardContent sx={{ cursor: "pointer", flexGrow: "1", backgroundColor: "#1a1c20", height: "250px", display: "flex", justifyContent: "center", paddingTop: "85px" }}>
                                 <Box sx={{ flexDirection: "column" }}>
                                     <Typography variant="h4" color="white" >

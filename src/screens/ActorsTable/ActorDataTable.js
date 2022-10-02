@@ -7,22 +7,18 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { IconButton, Switch, FormGroup, FormControlLabel, Button, ThemeProvider, Typography } from '@mui/material';
+import { IconButton, Switch, FormGroup, FormControlLabel, Button, ThemeProvider, Typography, CircularProgress } from '@mui/material';
 import { theme } from '../../constants/StyleConstants';
 import { useState } from 'react';
 import { getActors, reset } from '../../features/actors/ActorsSlice';
-
-
+import { SecurityUpdateGood } from '@mui/icons-material';
+import { logout } from '../../features/auth/AuthSlice';
 
 
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 150 },
   { field: 'name', headerName: 'name', width: 130 },
-//   { field: 'email', headerName: 'email', width: 130 },
-//   { field: 'password', headerName: 'password', width: 130 },
-//   { field: 'release_date', headerName: 'Release Date', width: 130 },
-//   { field: 'rating', headerName: 'Rating', width: 130 },
   {
     field: "actions",
     headerName: "actions",
@@ -77,24 +73,44 @@ const columns = [
   }
 ];
 
+
 export default function ActorDataTable() {
+  const [page, SetPage] = useState(0);
+  const [savedActors, SetActors] = useState([]);
 
 
 
   const dispatch = useDispatch()
-  const { anError , actors , MessageRecived } = useSelector(
+  const { anError, actors, MessageRecived, Loader } = useSelector(
     (state) => state.actors
   )
 
   useEffect(() => {
+
     if (anError) {
       console.log(MessageRecived)
     }
-    dispatch(getActors())
-    return () => {
-      dispatch(reset())
+    if (MessageRecived === "jwt expired") {
+      dispatch(logout())
+      window.location.reload()
     }
+
+    dispatch(getActors(page === 0 ? "1" : page.toString()))
+
+    console.log(actors.data ? actors.data : actors)
   }, [dispatch, anError, MessageRecived])
+
+  const handlePageChange = (event) => {
+    SetPage(event)
+    console.log("the page is " + event)
+    try {
+      dispatch(getActors(event === 0 ? "1" : event.toString()))
+
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
   return (
     <>
       <NavigationBar />
@@ -107,6 +123,7 @@ export default function ActorDataTable() {
       </ThemeProvider>
       <Box sx={{ height: "450px", width: '98%', margin: "0 auto", marginTop: "20px" }}>
         <DataGrid
+
           sx={{
             borderRadius: "20px",
             backgroundColor: "white",
@@ -115,10 +132,20 @@ export default function ActorDataTable() {
               color: '#ff4350',
             },
           }}
-          rows={actors}
+          rows={actors.data ? actors.data : actors}
+
+          onPageChange={handlePageChange}
           columns={columns}
-          pageSize={5}
-          rowsPerPageOptions={[5]}
+          rowCount={actors.meta ? actors.meta.total : 10}
+          // pageSize={10}
+        
+          page={page}
+          paginationMode="server"
+          loading={Loader ? <CircularProgress /> : null}
+
+          // rowsPerPageOptions={[10, 25, 50, 100]}
+          
+          
           disableSelectionOnClick
           checkboxSelection
           components={{

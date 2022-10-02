@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import { Link, Navigate, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import '../App.css';
 import { AppBar, Typography, Toolbar, Box } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
@@ -13,15 +13,12 @@ import { theme } from "../constants/StyleConstants";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import GroupIcon from '@mui/icons-material/Group';
-import SaveIcon from '@mui/icons-material/Save';
 import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
 import LoginIcon from '@mui/icons-material/Login';
-import SearchBar from "./searchBar";
 import { logout } from "../features/auth/AuthSlice";
 import { useDispatch } from "react-redux";
 import Home from "@mui/icons-material/Home";
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import PeopleIcon from '@mui/icons-material/People';
 import PersonIcon from '@mui/icons-material/Person';
 import SettingsIcon from '@mui/icons-material/Settings';
 import CategoryIcon from '@mui/icons-material/Category';
@@ -58,16 +55,13 @@ const NavigationBar = () => {
                       <CloseIcon sx={{ color: "white", }} />
                     </Button>
                   </ListItem>
-
                   {/* <SearchBar /> */}
-
-
                   <br />
                   <br />
                   {/* -----START HOME------- */}
-                  <NavLink style={{textDecoration : "none"}} to="/home">
+                  <NavLink style={{ textDecoration: "none" }} to="/home">
                     <ListItem button onClick={() => setOpen(false)}>
-                      <NavLink style={{textDecoration : "none"}} to="/home"
+                      <NavLink style={{ textDecoration: "none" }} to="/home"
                         className={({ isActive }) => (isActive ? 'colorRed' : 'ColorBlack')}>
                         <ListItemIcon>
                           <ListItem
@@ -86,9 +80,9 @@ const NavigationBar = () => {
 
 
                   {/* -----START MOVIES------- */}
-                  <NavLink style={{textDecoration : "none"}} to="/movies" >
+                  <NavLink style={{ textDecoration: "none" }} to="/movies" >
                     <ListItem button onClick={() => setOpen(false)} >
-                      <NavLink style={{textDecoration : "none"}} to="/movies"
+                      <NavLink style={{ textDecoration: "none" }} to="/movies"
                         className={({ isActive }) => (isActive ? 'colorRed' : 'ColorBlack')}>
                         <ListItemIcon>
                           <ListItem
@@ -107,9 +101,9 @@ const NavigationBar = () => {
 
 
                   {/* -----START ACTORS------- */}
-                  <NavLink style={{textDecoration : "none"}} to="/actors" >
+                  <NavLink style={{ textDecoration: "none" }} to="/actors" >
                     <ListItem button onClick={() => setOpen(false)} >
-                      <NavLink style={{textDecoration : "none"}} to="/actors"
+                      <NavLink style={{ textDecoration: "none" }} to="/actors"
                         className={({ isActive }) => (isActive ? 'colorRed' : 'ColorBlack')}>
                         <ListItemIcon>
                           <ListItem
@@ -124,12 +118,12 @@ const NavigationBar = () => {
                       </NavLink>
                     </ListItem>
                   </NavLink>
-                   {/* -----END OF ACTORS------- */}
+                  {/* -----END OF ACTORS------- */}
 
-                   {/* -----START USERS------- */}
-                   <NavLink style={{textDecoration : "none"}} to="/users" >
+                  {/* -----START USERS------- */}
+                  <NavLink style={{ textDecoration: "none" }} to="/users" >
                     <ListItem button onClick={() => setOpen(false)} >
-                      <NavLink style={{textDecoration : "none"}} to="/users"
+                      <NavLink style={{ textDecoration: "none" }} to="/users"
                         className={({ isActive }) => (isActive ? 'colorRed' : 'ColorBlack')}>
                         <ListItemIcon>
                           <ListItem
@@ -147,10 +141,10 @@ const NavigationBar = () => {
                   {/* -----END OF USETS------- */}
 
 
-                   {/* -----START GENRES------- */}
-                   <NavLink style={{textDecoration : "none"}}  to="/genres" >
-                    <ListItem  button onClick={() => setOpen(false)} >
-                      <NavLink style={{textDecoration : "none"}} to="/genres"
+                  {/* -----START GENRES------- */}
+                  <NavLink style={{ textDecoration: "none" }} to="/genres" >
+                    <ListItem button onClick={() => setOpen(false)} >
+                      <NavLink style={{ textDecoration: "none" }} to="/genres"
                         className={({ isActive }) => (isActive ? 'colorRed' : 'ColorBlack')}>
                         <ListItemIcon>
                           <ListItem
@@ -165,20 +159,20 @@ const NavigationBar = () => {
                       </NavLink>
                     </ListItem>
                   </NavLink>
-                      {/* -----END OF GENRES------- */}
+                  {/* -----END OF GENRES------- */}
 
-                      <ListItem button onClick={logoutHandleer}>
-                      <ListItemIcon>
-                        <ListItem
-                          style={{
-                            textDecoration: "none",
-                            color: "#fff",
-                            fontWeight: "bolder",
-                          }}>
-                          <SettingsIcon sx={{ color: "white" }} /> &nbsp;Settings
-                        </ListItem>
-                      </ListItemIcon>
-                    </ListItem>
+                  <ListItem button onClick={logoutHandleer}>
+                    <ListItemIcon>
+                      <ListItem
+                        style={{
+                          textDecoration: "none",
+                          color: "#fff",
+                          fontWeight: "bolder",
+                        }}>
+                        <SettingsIcon sx={{ color: "white" }} /> &nbsp;Settings
+                      </ListItem>
+                    </ListItemIcon>
+                  </ListItem>
 
                   <Box sx={{ position: "relative", bottom: "-170px" }}>
                     <ListItem button onClick={logoutHandleer}>
@@ -195,7 +189,7 @@ const NavigationBar = () => {
                     </ListItem>
                   </Box>
 
-              
+
 
                 </List>
               </Drawer>

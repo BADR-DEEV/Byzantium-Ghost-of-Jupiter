@@ -12,10 +12,15 @@ const initialState = {
 
 export const getActors = createAsyncThunk(
     'actors/getAll',
-    async (_, thunkAPI) => {
+    async (page, thunkAPI) => {
       try {
+        console.log("the page is " + page)
+        
+        const getToken = () => localStorage.getItem("user")
+        ? JSON.parse(localStorage.getItem("user"))
+        : null;
         // const token = thunkAPI.getState().auth.user.token
-        return await actorsService.getActors()
+        return await actorsService.getActors(getToken() , page)
       } catch (error) {
         const message =
           (error.response &&
